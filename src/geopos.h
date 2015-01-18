@@ -8,7 +8,7 @@ class Geopos : public QObject
 {
     Q_OBJECT
 public:
-    explicit Geopos(bool repeat = false, bool verbose = true, QObject *parent = 0);
+    explicit Geopos(bool repeat = false, bool verbose = true, QString selectedSource = QString(), QObject *parent = 0);
 
 
 private slots:

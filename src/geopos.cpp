@@ -1,13 +1,19 @@
 #include "geopos.h"
 
 
-Geopos::Geopos(bool repeat, bool verbose, QObject *parent) :
+Geopos::Geopos(bool repeat, bool verbose, QString selectedSource, QObject *parent) :
     QObject(parent)
 {
     m_repeat = repeat;
     m_verbose = verbose;
 
-    QGeoPositionInfoSource *source = QGeoPositionInfoSource::createDefaultSource(this);
+    QGeoPositionInfoSource *source;
+
+    if (selectedSource.isEmpty())
+        source = QGeoPositionInfoSource::createDefaultSource(this);
+    else
+        source = QGeoPositionInfoSource::createSource(selectedSource, this);
+
     if (source)
     {
         connect(source, SIGNAL(positionUpdated(QGeoPositionInfo)),

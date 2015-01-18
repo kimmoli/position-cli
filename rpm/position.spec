@@ -9,7 +9,7 @@ Version:    0.0.1
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
-URL:
+URL:        https://github.com/kimmoli/position-cli
 Source0:    %{name}-%{version}.tar.bz2
 
 BuildRequires:  pkgconfig(Qt5Core)
